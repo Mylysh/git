@@ -46,8 +46,6 @@ int main() {
         }
 
         cout << "Press any key to continue . . ." << endl;
-        cin.ignore();
-        cin.get();
         cout << endl;
     }
 
