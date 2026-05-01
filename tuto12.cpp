@@ -3,24 +3,9 @@ using namespace std;
 
 int main (){
 
-    float weight, height, bmi;
+int num;
 
-    cout << "Get weight in kg :";
-    cin >> weight;
-
-    cout << "Get height in meter :";
-    cin >> height;
-
-    bmi = weight/(height*height);
-
-    if (bmi < 18.5){
-
-        cout << "Your weight category is : Underweight " << endl;
-
-    }
-
-    else if (bmi < 25 || bmi > 18.5)
-
+cout << "Insert a number "
 
     return 0;
 }
