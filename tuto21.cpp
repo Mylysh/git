@@ -17,7 +17,6 @@ int factorial (int num){
     for (num; num > 1; num--){
         result = result * num;
     
-    
     }
 
     return result;
