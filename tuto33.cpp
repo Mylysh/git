@@ -2,7 +2,7 @@
 #include <ctime>
 using namespace std;
 
-void sumAverage(float *pArray, int size, float &a_sum, float&a_average);
+void sumAverage(float *pArray, int size, float &a_sum, float &a_average);
 
 int main(){
     float sum = 0.0, average = 0.0;
@@ -13,4 +13,15 @@ int main(){
 
     return 1;
     
+}
+
+void sumAverage(float *pArray, int size, float &a_sum, float &a_average){
+
+    for (int i = 0; i < size; i++){
+
+        a_sum = a_sum + pArray[i];
+
+    }
+
+    a_average = a_sum/size;
 }
