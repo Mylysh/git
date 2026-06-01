@@ -1,99 +1,78 @@
 #include <iostream>
-#include <string>
-#include <iomanip>
 using namespace std;
 
-class Purchase {
-private:
+class Purchase{
+
+    private:
     int qty;
     float price;
     string itemName;
     float total;
 
-public:
+    public:
     Purchase(string name, int quantity, float p);
-    void set_data(string name, int quantity, float p);
+    void set_data(string name, int quantity, float p); 
     void calculate();
-    void print();
-    float getTotal();
-    int getQty();
+    void printf();
+
+    
 };
 
-// Constructor
-Purchase::Purchase(string name, int quantity, float p) {
-    itemName = name;
-    qty = quantity;
-    price = p;
-    total = 0;
-}
+    Purchase :: Purchase(string name, int quantity, float p){
 
-// set_data function
-void Purchase::set_data(string name, int quantity, float p) {
-    itemName = name;
-    qty = quantity;
-    price = p;
-}
+        itemName = name;
+        qty = quantity;
+        price = p;
+    };
 
-// calculate function
-void Purchase::calculate() {
-    total = qty * price;
-}
+    void Purchase :: set_data(string name, int quantity, float p){
 
-// print function (subtotal per item)
-void Purchase::print() {
-    cout << "==============================" << endl;
-    cout << "Subtotal : RM " << fixed << setprecision(2) << total << endl;
-    cout << "==============================" << endl;
-}
+        itemName = name;
+        qty = quantity;
+        price = p;
 
-// Getter for total
-float Purchase::getTotal() {
-    return total;
-}
+    };
 
-// Getter for qty
-int Purchase::getQty() {
-    return qty;
-}
+    void Purchase :: calculate(){
+        total = price*qty;
 
-int main() {
+    };
+
+    void Purchase :: printf(){
+        
+        cout << "------------------------" << endl;
+        cout << "\tRECEIPT\t" << endl;
+        cout << "------------------------" << endl;
+        cout << "Name\t\t: " << itemName << endl;
+        cout << "Quantity\t: " << qty << endl;
+        cout << "Price\t\t: RM " << price << endl;
+        cout << "Payment\t\t: RM " << total << endl;
+
+    };
+
+
+int main (){
+
+    Purchase p1("", 0, 0.0);
+
     string name;
     int quantity;
     float price;
-    float grandTotal = 0;
-    int totalItems = 0;
 
-    cout << "==============================" << endl;
-    cout << "            WELCOME           " << endl;
-    cout << "==============================" << endl;
+    cout << "------------------------" << endl;
+    cout << "\tWELCOME\t" << endl;
+    cout << "------------------------" << endl;
+    cout << "Enter item\t: ";
+    cin >> name;
+    cout << "Enter quantity\t: ";
+    cin >> quantity;
+    cout << "Enter price\t: RM ";
+    cin >> price;
 
-    while (true) {
-        cout << "Enter item ('Q' to quit) : ";
-        cin >> name;
+    p1.set_data(name, quantity, price);
+    p1.calculate();
+    p1.printf();
 
-        if (name == "Q" || name == "q") {
-            cout << "==============================" << endl;
-            break;
-        }
+    return 0;   
 
-        cout << "Enter quantity : ";
-        cin >> quantity;
-        cout << "Enter price    : RM ";
-        cin >> price;
-
-        Purchase p1(name, quantity, price);
-        p1.set_data(name, quantity, price);
-        p1.calculate();
-        p1.print();
-
-        grandTotal += p1.getTotal();
-        totalItems += p1.getQty();
-    }
-
-    cout << "          GRAND TOTAL         " << endl;
-    cout << "==============================" << endl;
-    cout << "Total number of items  :" << totalItems << endl;
-    cout << "Total amount to be paid: RM" << fixed << setprecision(2) << grandTotal << endl;
-
-    return 0;
-}
+};
