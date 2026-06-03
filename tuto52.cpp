@@ -23,7 +23,7 @@ class BankAccount {
         balance = balance - amount;
 
         if (balance < 0){
-            cout << "Insufficient balance" << endl;
+            cout << "Insufficient funds." << endl;
             balance = balance + amount;
         }
 
@@ -40,8 +40,16 @@ class BankAccount {
  
 int main (){
 
-    BankAccount b1; 
-    cout << "Current balance : " << b1.Deposit(1000);
+    BankAccount b1;
+
+    b1.Deposit(1000.00);
+    cout << "Current balance : " << b1.GetBalance() << endl;
+    
+    b1.Withdraw(500.00);
+    cout << "Current balance : " << b1.GetBalance() << endl;
+
+    b1.Withdraw(600.00);
+    cout << "Current balance : " << b1.GetBalance() << endl;
 
 
 }
