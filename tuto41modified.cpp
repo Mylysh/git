@@ -4,10 +4,10 @@ using namespace std;
 class Purchase{
 
     private:
-    int qty;
+    int total_qty = 0, qty;
     float price;
     string itemName;
-    float total, subtotal;
+    float total = 0, subtotal;
 
     public:
     Purchase(string name, int quantity, float p);
@@ -15,6 +15,17 @@ class Purchase{
     void calculate();
     void printf();
     void printtotal();
+    int getTotalItem(){
+        total_qty = total_qty + qty;
+        return total_qty; 
+       
+
+    };
+
+    float getTotalPrice(){
+        total = total + subtotal;
+        return total;
+    };
 
     
 };
@@ -36,7 +47,7 @@ class Purchase{
 
     void Purchase :: calculate(){
         
-        total = price*qty;
+        subtotal = price*qty;
         
 
     };
@@ -44,17 +55,19 @@ class Purchase{
     void Purchase :: printf(){
         
         cout << "========================" << endl;
-        cout << "Subtotal : RM " << total << endl;
+        cout << "Subtotal : RM " << subtotal << endl;
         cout << "========================" << endl;
 
     };
 
     void Purchase :: printtotal(){
 
+        cout << "========================" << endl;
+        cout << "\tGRAND TOTAL\t" << endl;
+        cout << "========================" << endl;
+        cout << "Total number of items\t:" << total_qty << endl;
+        cout << "Total amount to be paid\t: RM" << total << endl;
         
-
-
-
 
     }
 
@@ -70,8 +83,15 @@ int main (){
     cout << "========================" << endl;
     cout << "\tWELCOME\t" << endl;
     cout << "========================" << endl;
-    cout << "Enter item\t: ";
+    
+    while (true){
+
+    cout << "Enter item <'Q' to quit > : ";
     cin >> name;
+
+    if (name == "Q" || name == "q"){
+        break;
+    }
     cout << "Enter quantity\t: ";
     cin >> quantity;
     cout << "Enter price\t: RM ";
@@ -80,6 +100,12 @@ int main (){
     p1.set_data(name, quantity, price);
     p1.calculate();
     p1.printf();
+    p1.getTotalItem();
+    p1.getTotalPrice();
+};
+
+
+p1.printtotal();
 
     return 0;   
 
