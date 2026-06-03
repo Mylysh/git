@@ -2,49 +2,46 @@
 using namespace std;
 
 class BankAccount {
-private:
-    double balance;
+    private:
+        double balance;
 
-public:
-    // Constructor
-    BankAccount(double initialBalance) {
-        balance = initialBalance;
+    public:
+        BankAccount(){
+            balance = 0.0;
+        }
+
+        void Deposit(double amount);
+        void Withdraw(double amount);
+        double GetBalance();
+    };
+
+    void BankAccount :: Deposit(double amount){
+        balance = balance + amount;
     }
 
-    // i) Deposit
-    void Deposit(double amount) {
-        balance += amount;
-        cout << "Deposit: RM" << amount << endl;
-    }
+    void BankAccount :: Withdraw(double amount){
+        balance = balance - amount;
 
-    // ii) Withdraw
-    void Withdraw(double amount) {
-        if (amount > balance) {
-            cout << "Insufficient fund" << endl;
-        } else {
-            balance -= amount;
-            cout << "Withdraw: RM" << amount << endl;
+        if (balance < 0){
+            cout << "Insufficient balance" << endl;
+            balance = balance + amount;
+        }
+
+        else{
+            balance = balance;
         }
     }
 
-    // iii) GetBalance
-    double GetBalance() {
+    double BankAccount :: GetBalance(){
+
         return balance;
+
     }
-};
+ 
+int main (){
 
-// iv) main()
-int main() {
+    BankAccount b1; 
+    cout << "Current balance : " << b1.Deposit(1000);
 
-    BankAccount account(1000);
 
-    cout << "Initial Balance: RM" << account.GetBalance() << endl;
-
-    account.Withdraw(500);
-    cout << "Current Balance: RM" << account.GetBalance() << endl;
-
-    account.Withdraw(400);
-    cout << "Current Balance: RM" << account.GetBalance() << endl;
-
-    return 0;
 }

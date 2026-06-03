@@ -32,4 +32,23 @@ class Fraction{
 
 
 };
-   
+
+int main() {
+    Fraction f1(3, 4);
+    Fraction f2(1, 2);
+    Fraction result;
+
+    cout << "f1: ";       
+    f1.display();
+
+    cout << "f2: ";       
+    f2.display();
+
+    cout << "f1 + f2: ";  
+    result = f1.add(f2);      
+    result.display();
+
+    cout << "f1 * f2: ";  
+    result = f1.multiply(f2);  
+    result.display();
+}
