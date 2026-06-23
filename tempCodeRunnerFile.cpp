@@ -1,11 +1,13 @@
 
 
- double getArea(){
+    cout << ("Enter id: ");
+    cin >> id;
 
- double area = 0;
+    cout << ("Enter salary: ");
+    cin >> salary;
 
- area = width*height;
- return area;
- }
 
-};
+    Engineer e(name, id , salary);
+
+    e.SetCompanyName(company);
+    e.SetDepartmentName(department);
