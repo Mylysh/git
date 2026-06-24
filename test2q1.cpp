@@ -23,7 +23,7 @@ class Student{
     }
 
     void displayIDName(){
-        cout << "Name : "<< name << "\tID : " << id;
+        cout << "Name : "<< name << "\nID : " << id << endl;
     }
 
     float getGPA(){
@@ -37,10 +37,32 @@ class Student{
 
 };
 
+class ContactInfo{
+
+    private:
+    string address;
+    string phoneNumber;
+
+    public:
+
+    ContactInfo( string a , string n){
+        address = a;
+        phoneNumber = n;
+    }
+
+    void displayContact(){
+        cout << "Address : " << address << endl;
+        cout << "Phone Number : " << phoneNumber << endl;
+
+    }
+};
+
 int main (){
     Student s1("Alice", 1001, 3.8);
+    ContactInfo c1("123 Street Cyberjaya Malaysia", "603-83124311");
     cout << "\nStudent Name: " << s1.getName() << endl;
     s1.displayIDName();
+    c1.displayContact();
 
     return 0; 
 }
